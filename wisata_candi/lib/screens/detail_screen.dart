@@ -20,12 +20,8 @@ class DetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: Image.asset(
-                    candi.imageAsset,
-                    width: double.infinity, 
-                    height: 300, 
-                    fit: BoxFit.cover
-                    ),
+                  child: Image.asset(candi.imageAsset,
+                      width: double.infinity, height: 300, fit: BoxFit.cover),
                 ),
               ),
               // Back Button
@@ -37,24 +33,101 @@ class DetailScreen extends StatelessWidget {
                     shape: BoxShape.circle,
                   ),
                   child: IconButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     icon: const Icon(Icons.arrow_back),
-                    ),
+                  ),
                 ),
-                )
+              )
             ],
           ),
           // Detail Info
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                // Info Atas
-                // Info Tengah 
-                // Info Bawah
-              ],
-            )
-            ),
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  const SizedBox(height: 16),
+                  // Info Atas
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        candi.name,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {}, icon: Icon(Icons.favorite_border))
+                    ],
+                  ),
+                  // Info Tengah
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.place,
+                        color: Colors.red,
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const SizedBox(
+                        width: 70,
+                        child: Text(
+                          'Lokasi',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(': ${candi.location}'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.calendar_month,
+                        color: Colors.blue,
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const SizedBox(
+                        width: 70,
+                        child: Text(
+                          'Dibangun',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(': ${candi.built}'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.house,
+                        color: Colors.lightGreen,
+                      ),
+                      const SizedBox(
+                        width: 8,
+                      ),
+                      const SizedBox(
+                        width: 70,
+                        child: Text(
+                          'Tipe',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Text(': ${candi.type}'),
+                    ],
+                  ),
+                  // Info Bawah
+                  const SizedBox(height: 16,),
+                  Divider(color: Colors.deepPurple.shade100,),
+                  const SizedBox(height: 16,),
+                ],
+              )),
           // Info Atas
         ],
       ),
